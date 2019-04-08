@@ -1,6 +1,5 @@
 let card = document.getElementsByClassName("card");
-let cards = [];
-console.log(cards);
+let cards = [...card];
 let deck = document.getElementById("card-deck");
 let counter = document.querySelector(".moves");
 let matchedCard = document.getElementsByClassName("match");
@@ -28,7 +27,7 @@ function startGame(){
   for (let i = 0; i < cards.length; i++){
     deck.innerHTML = "";
     [].forEach.call(cards, function(item) {
-        deck.appendChild(item);
+      deck.appendChild(item);
     });
     cards[i].classList.remove("show", "open", "match", "disabled");
   }
@@ -48,9 +47,9 @@ function cardOpen() {
   if(len === 2){
     moveCounter();
     if(openedCards[0].type === openedCards[1].type){
-        matched();
+      matched();
     } else {
-        unmatched();
+      unmatched();
     }
   }
 };
@@ -99,5 +98,4 @@ for (var i = 0; i < cards.length; i++){
   card = cards[i];
   card.addEventListener("click", displayCard);
   card.addEventListener("click", cardOpen);
-  card.addEventListener("click",congratulations);
 };
